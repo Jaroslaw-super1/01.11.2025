@@ -8,8 +8,10 @@ void output(const int * const * mtx) {
 
 }
 
-void rm(const int * const * mtx) {
-    
+void rm(const int * const * mtx, int r) {
+    for (size_t i = 0; i < r; i++) {
+        delete[] mtx[i];
+    }
 }
 
 
@@ -23,7 +25,7 @@ int main() {
     int ** mtx = nullptr;
     mtx = make(rows, cols);
     output(mtx);
-    rm(mtx);
+    rm(mtx, rows);
 
     return 0;
 }
